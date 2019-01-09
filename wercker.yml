@@ -18,3 +18,14 @@ build:
       cache_repo: true
       version: 3.5.2
       maven_opts: -DskipTests
+      
+push:
+  steps:
+    - internal/docker-push:
+        username: $DOCKER_USERNAME
+        password: $DOCKER_PASSWORD
+        tag: latest
+        repository: $DOCKER_USERNAME/helidontest
+        registry: https://index.docker.io/v2
+        ports: "5000"
+        cmd: "/pipeline/source/helidontest"
