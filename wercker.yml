@@ -19,14 +19,14 @@ build:
       version: 3.5.2
       maven_opts: -DskipTests
 
-# Test push to dockerhub
+# Push to dockerhub
 push:
   steps:
     - internal/docker-push:
         username: $DOCKER_USERNAME
         password: $DOCKER_PASSWORD
         tag: latest
-        repository: $DOCKER_USERNAME/helidontest
+        repository: $DOCKER_REPONAME/helidontest
         registry: https://index.docker.io/v2
         ports: "5000"
         cmd: "/pipeline/source/helidontest"
