@@ -27,3 +27,4 @@ push:
         password: $DOCKER_PASSWORD
         tag: latest
         repository: $DOCKER_REPONAME/helidontest
+        cmd: "java -jar /pipeline/source/target/quickstart-mp.jar"
