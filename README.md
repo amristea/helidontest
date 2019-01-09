@@ -36,17 +36,8 @@ java -jar target/quickstart-mp.jar
 ## Exercise the application
 
 ```
-curl -X GET http://localhost:8080/greet
-{"message":"Hello World!"}
-
-curl -X GET http://localhost:8080/greet/Joe
-{"message":"Hello Joe!"}
-
-curl -X PUT http://localhost:8080/greet/greeting/Hola
-{"gretting":"Hola"}
-
-curl -X GET http://localhost:8080/greet/Jose
-{"message":"Hola Jose!"}
+curl -X GET http://localhost:80/sonarqube-techdebt/get
+{...}
 ```
 
 ## Build the Docker Image
