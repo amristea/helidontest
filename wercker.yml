@@ -28,3 +28,14 @@ push:
         tag: latest
         repository: $DOCKER_REPONAME/helidontest
         cmd: "java -jar /pipeline/source/target/quickstart-mp.jar"
+        
+ # Deploy to kubernetes
+ deploy:
+   steps:
+     - kubectl:
+        server: $KUBERNETES_MASTER
+        username: $KUBERNETES_USERNAME
+        password: $KUBERNETES_PASSWORD
+        insecure-skip-tls-verify: true
+        command: create -f target/app.yml
+        image: amristea2/helidontest:latest
