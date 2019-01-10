@@ -37,5 +37,4 @@ deploy:
         username: $KUBERNETES_USERNAME
         password: $KUBERNETES_PASSWORD
         insecure-skip-tls-verify: true
-        command: create -f target/app.yml
-        image: amristea2/helidontest:latest
+        command: create -f /pipeline/source/target/app.yml
