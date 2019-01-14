@@ -35,6 +35,7 @@ deploy:
     - kubectl:
         server: $KUBERNETES_MASTER
         username: $KUBERNETES_USERNAME
-        password: $KUBERNETES_PASSWORD
+        token: $KUBERNETES_TOKEN
+        certificate-authority: $KUBERNETES_CA_CERT
         insecure-skip-tls-verify: true
         command: create -f /pipeline/source/target/app.yml
