@@ -43,7 +43,7 @@ deploy:
         command: get nodes
       
     - wercker/kubectl@3.9.0:
-        command: create -f /pipeline/source/target/app.yaml
+        command: apply -f /pipeline/source/target/app.yaml
         
   after-steps:
     - script: 
