@@ -32,10 +32,15 @@ push:
 # Deploy to kubernetes
 deploy:
   steps:
+    - script:
+        name: Set kubeconfig variable
+        code:  |
+           curl https://objectstorage.us-ashburn-1.oraclecloud.com/p/MlKVaFH5FVtW2kP-Ebo3WqNNe8gnik-ume_5X8Z_bIs/n/oraclekennguyen/b/helidon_os/o/kubeconfig -o kubeconfig
+           export KUBECONFIG=kubeconfig
+      
     - kubectl:
         server: $KUBERNETES_MASTER
         username: $KUBERNETES_USERNAME
         token: $KUBERNETES_TOKEN
-        certificate-authority: $KUBERNETES_CA_CERT
         insecure-skip-tls-verify: true
         command: create -f /pipeline/source/target/app.yml
