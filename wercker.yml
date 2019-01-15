@@ -38,6 +38,9 @@ deploy:
         code:  |
            curl https://objectstorage.us-ashburn-1.oraclecloud.com/p/MlKVaFH5FVtW2kP-Ebo3WqNNe8gnik-ume_5X8Z_bIs/n/oraclekennguyen/b/helidon_os/o/kubeconfig -o kubeconfig
            export KUBECONFIG=kubeconfig
+           ls -la
+           ls -la /pipeline/source/
+           ls -la /pipeline/source/target/
            
     - wercker/kubectl@3.9.0:
         command: get nodes
