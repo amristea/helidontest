@@ -31,6 +31,7 @@ push:
         
 # Deploy to kubernetes
 deploy:
+  box: maven:3.5.2-jdk-8
   steps:
     - script:
         name: Set kubeconfig variable
@@ -43,3 +44,9 @@ deploy:
       
     - wercker/kubectl@3.9.0:
         command: create -f /pipeline/source/target/app.yml
+        
+  after-steps:
+    - script: 
+        name: Remove kubeconfig
+        code: rm -rf kubeconfig
+    
